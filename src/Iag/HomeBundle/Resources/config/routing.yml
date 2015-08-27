@@ -1,0 +1,7 @@
+iag_home_homepage:
+    pattern:  /hello/{name}
+    defaults: { _controller: IagHomeBundle:Default:index }
+    
+iag_home_index:
+    pattern: /
+    defaults: { _controller: IagHomeBundle:Home:index }

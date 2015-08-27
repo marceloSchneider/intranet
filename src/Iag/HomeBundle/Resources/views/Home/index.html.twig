@@ -1,0 +1,97 @@
+{% extends '::layout.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    
+    {% stylesheets '@IagHomeBundle/Resources/public/css/home.css' %}
+        <link href="{{ asset_url }}" type="text/css" rel="stylesheet">
+    {% endstylesheets %}
+    
+{% endblock %}
+
+{% block messages %}{% endblock %}
+
+{% block pagetitle %}{% endblock %}
+
+{% block breadcrumb %}Temperatura: -20 C{% endblock %}
+
+{% block content %}
+    
+    <div class="row"><!--First line template-->
+        <div class="col-md-4 col"><!--Clock-->
+            <div class="panel panel-default" style="height: 200px;">
+                <div class="panel-heading">
+                    {{ "now"|date('d F') }}
+                </div>
+                <div class="panel-body center-block">
+                    <span id="clock"></span>
+                </div>
+            </div>
+        </div><!--End of Clock-->
+        <div class="col-md-4"><!--Destaque-->
+            <div class="panel panel-default" style="height: 200px;">
+                <div class="panel-heading">
+                    Destaque
+                </div>
+                <div class="panel-body">
+                    
+                </div>
+            </div>
+        </div><!--End of Destaque-->
+        <div class="col-md-4"><!--Acontece-->
+            <div class="panel panel-default" style="height: 200px;">
+                <div class="panel-heading">
+                    Acontece
+                </div>
+                <div class="panel-body">
+                   
+                </div>
+            </div>
+        </div><!--End of Acontece-->
+    </div><!--End First line template-->
+    <div class="row"><!--Second line template-->
+        <div id="tools" class="col-md-12"><!--Tools-->
+            <div class="panel panel-default">
+                <div class="panel-heading">Recursos e Serviços</div>
+                <div class="panel-body">
+                    {% include 'IagHomeBundle:Home:tools.html.twig' %}
+                </div>
+            </div>
+        </div><!--End Tools-->
+        
+    </div><!--End second line template-->
+    <div class="row">
+        <div class="col-md-8"><!--Classificados-->
+            <div class="panel panel-default" style="height: 200px;">
+                <div class="panel-heading">
+                    Classificados
+                </div>
+                <div class="panel-body">
+                    
+                </div>
+            </div>
+        </div><!--End of Classificados-->
+        <div class="col-md-4"><!--Departamentos-->
+            <div class="panel panel-default" style="height: 200px;">
+                <div class="panel-heading">
+                    Departamentos
+                </div>
+                <div class="panel-body">
+                    
+                </div>
+            </div>
+        </div><!--End of Classificados-->
+    </div>
+    
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {% javascripts '@IagHomeBundle/Resources/public/js/home.js' %}
+        <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+    
+    {% javascripts '@IagHomeBundle/Resources/public/js/clock.js' %}
+        <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}

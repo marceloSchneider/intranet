@@ -1,5 +1,9 @@
+iag_home:
+    resource: "@IagHomeBundle/Resources/config/routing.yml"
+    prefix:   /
+
 your_vendor_your:
-    resource: "@YourVendorYourBundle/Resources/config/routing.yml"
+    resource: "@IagUserBundle/Resources/config/routing.yml"
     prefix:   /secure_area
 
 fos_user_security:

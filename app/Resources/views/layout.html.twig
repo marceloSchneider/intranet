@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}
+            {% stylesheets 'css/bootstrap.css' %}
+                <link href="{{ asset_url }}" type="text/css" rel="stylesheet">
+            {% endstylesheets %}
+        {% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    
+    
+    <body>
+        {% include 'menu.html.twig' %}
+        <div class="container-fluid"> 
+            
+            <div class="row" style="margin-top: 150px;"><!--Content-->
+                <div class="col-md-1">{% block contentleft %}{% endblock %}</div>
+                <div class="col-md-10">
+                    {% if block('pagetitle') %}<div class="page-header"><h2>{% block pagetitle %}{% endblock %}</h2></div>{% endif %}
+                    {% block messages %}{% include 'messages.html.twig' %}{% endblock %}
+                    {% block breadcrumb %}<ol class="breadcrumb"></ol>{% endblock %}
+                    {% block content %}{% endblock %}
+                </div>
+                <div class="col-md-1">{% block contentright %}{% endblock %}</div>
+            </div><!--End of Content-->
+            
+        </div><!--End of container-->
+        
+        {% include 'footer.html.twig' %}
+        
+        {% block javascripts %}
+            {% javascripts 'js/jquery.js' %}
+                <script src="{{ asset_url }}"></script>
+            {% endjavascripts %}
+            
+            {% javascripts 'js/bootstrap.js' %}
+                <script src="{{ asset_url }}"></script>
+            {% endjavascripts %}
+        {% endblock %}
+    </body>
+</html>
